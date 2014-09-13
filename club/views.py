@@ -20,7 +20,12 @@ def issueCredit(request):
 def chargeCredit(request):
 	pass
 
-@csrf_exempt
+from django_twilio.decorators import twilio_view
+from twilio.twiml import Response
+ 
+@twilio_view
 def sms(request):
-    twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
-    return HttpResponse(twiml, content_type='text/xml')
+    r = Response()
+    r.message('Hello from your Django app!')
+    return r
+
