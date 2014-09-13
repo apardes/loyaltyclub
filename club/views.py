@@ -22,6 +22,5 @@ def chargeCredit(request):
 
 @csrf_exempt
 def sms(request):
-	twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
-
-	return HttpResponse(twiml, content_type='text/xml')
+    twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
+    return HttpResponse(twiml, content_type='text/xml')
