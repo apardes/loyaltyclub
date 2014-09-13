@@ -88,3 +88,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+f = open('twilio_sid.txt', 'r')
+g = open('twilio_token.txt', 'r')
+TWILIO_ACCOUNT_SID = f.read()
+TWILIO_AUTH_TOKEN = g.read()
