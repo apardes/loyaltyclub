@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from tastypie.api import Api
-from api import BusinessResource, CreditResource, TransactionResource
+from api import BusinessResource, TransactionResource
 
 
 
