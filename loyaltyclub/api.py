@@ -37,9 +37,7 @@ class TransactionResource(ModelResource):
 		data = self.deserialize(request, request.body, format = request.META.get('CONTENT_TYPE', 'application/json'))
 
 
-			print "it worked"
+		print "it worked"
 
-			return self.create_response(request, {'success' : True})
+		return self.create_response(request, {'success' : True})
 			
-		else:
-			return self.create_response(request, {'success' : False, 'reason' : 'incorrect'}, HttpUnauthorized)
