@@ -16,6 +16,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^webapp/', include('club.urls', namespace = 'club')),
+    url(r'^app/', include('club.urls', namespace = 'club')),
     url(r'^api/', include(v1_api.urls)),
 )

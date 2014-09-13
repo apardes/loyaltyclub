@@ -6,4 +6,5 @@ urlpatterns = patterns('',
 	url(r'^', views.index, name = 'index'),
 	url(r'^issue/$', views.issueCredit, name = 'issueCredit'),
 	url(r'^charge/$', views.chargeCredit, name = 'chargeCredit'),
+	url(r'^sms/$', views.sms, name = 'sms'),
 )

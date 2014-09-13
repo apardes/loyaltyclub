@@ -5,7 +5,7 @@ from django.template import RequestContext
 import json
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 # Create your views here.
@@ -18,3 +18,9 @@ def issueCredit(request):
 
 def chargeCredit(request):
 	pass
+
+@csrf_exempt
+def sms(request):
+	twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
+
+	return HttpResponse(twiml, content_type='text/xml')
