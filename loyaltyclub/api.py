@@ -3,6 +3,7 @@ from club.models import Member, Business, Credit, Transaction
 from tastypie.serializers import Serializer 
 import simplejson
 from django.core.serializers import json
+from twilio import twiml
 
 class PrettyJSONSerializer(Serializer):
 	json_indent = 4
@@ -30,18 +31,13 @@ class TransactionResource(ModelResource):
 			url(r'^(?P<resource_name>%s)/phonecall%s$' % (self._meta.resource_name, trailing_slash()), self.wrap_view('phoneCall'), name = 'phoneCall'),
 
 			]
-	def changeEmail(self, request, **kwargs):
+
+	def callBack(self, request, **kwargs):
 		self.method_check(request, allowed = ['post'])
 		data = self.deserialize(request, request.body, format = request.META.get('CONTENT_TYPE', 'application/json'))
 
-		if request.user and request.user.is_authenticated():
-			user = request.user
 
-			new_email = data.get('new_email', '')
-
-			user.email = new_email
-			user.save()
-
+			print "it worked"
 
 			return self.create_response(request, {'success' : True})
 			

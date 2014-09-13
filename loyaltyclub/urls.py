@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from tastypie.api import Api
-from api import BusinessResource
+from api import BusinessResource, CreditResource, TransactionResource
 
 
 
 v1_api = Api(api_name = 'v1')
 v1_api.register(BusinessResource())
+v1_api.register(TransactionResource())
 
 
 urlpatterns = patterns('',
