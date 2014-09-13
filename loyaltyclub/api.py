@@ -4,6 +4,9 @@ from tastypie.serializers import Serializer
 import simplejson
 from django.core.serializers import json
 from twilio import twiml
+from django.conf.urls import url
+from tastypie.utils import trailing_slash
+
 
 class PrettyJSONSerializer(Serializer):
 	json_indent = 4
