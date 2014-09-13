@@ -32,15 +32,13 @@ class TransactionResource(ModelResource):
 		return [
 			url(r'^(?P<resource_name>%s)/callback%s$' % (self._meta.resource_name, trailing_slash()), self.wrap_view('callBack'), name = 'callBack'),
 			url(r'^(?P<resource_name>%s)/phonecall%s$' % (self._meta.resource_name, trailing_slash()), self.wrap_view('phoneCall'), name = 'phoneCall'),
-
 			]
 
 	def callBack(self, request, **kwargs):
-		self.method_check(request, allowed = ['post'])
-		data = self.deserialize(request, request.body, format = request.META.get('CONTENT_TYPE', 'application/json'))
+		#self.method_check(request, allowed = ['post'])
+		#data = self.deserialize(request, request.body, format = request.META.get('CONTENT_TYPE', 'application/json'))
+		resp = twilio.twiml.Response()
+		resp.message("Hello, Mobile Monkey")
+		return str(resp)
 
-
-		print "it worked"
-
-		return self.create_response(request, {'success' : True})
 			
